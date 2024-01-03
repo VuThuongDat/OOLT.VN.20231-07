@@ -13,5 +13,15 @@ public class Main {
         tree.search(32);
         tree.traverseBFS();
 
+        BinarySearchTree tree1 = new BinarySearchTree();
+        tree1.insert(34, 16);
+        tree1.insert(34, 40);
+        tree1.insert(23, 10);
+        tree1.insert(23, 50);
+        tree1.delete(40);
+        tree1.update(16, 6);
+        tree1.search(40);
+        tree1.traverseBFS();
+
     }
 }
