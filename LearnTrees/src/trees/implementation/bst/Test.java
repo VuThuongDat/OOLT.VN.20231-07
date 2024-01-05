@@ -1,11 +1,9 @@
 package trees.implementation.bst;
 
-import trees.implementation.Author;
 import trees.implementation.TreeNode;
 
 import java.util.ArrayList;
 
-@Author(name = "Ankit Sharma", date = "12 Oct 2018")
 public class Test {
     public static void main(String [] args){
         BST<String> bst = new BST<>();

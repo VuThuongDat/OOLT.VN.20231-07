@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import trees.gui.bst.BstVisualiser;
 import trees.implementation.redBlack.RedBlackTree;
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "20 Nov 2018")
 public class RBVisualiser extends BstVisualiser {
     @Override
     public void start(Stage primaryStage){

@@ -1,16 +1,21 @@
 package trees.implementation.bst;
 
-import trees.implementation.Author;
 import trees.implementation.Tree;
 import trees.implementation.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-@Author(name = "Ankit Sharma", date = "12 Oct 2018")
+
 public class BST<E extends Comparable<E>> implements Tree<E> {
 
     public TreeNode<E> root;
+
+//    @Override
+//    public boolean insertG(E p, E c) {
+//        return false;
+//    }
+
     public int size = 0;
 
     public BST() {

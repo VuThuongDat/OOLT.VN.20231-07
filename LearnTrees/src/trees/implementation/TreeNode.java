@@ -1,6 +1,5 @@
 package trees.implementation;
 
-@Author(name = "Ankit Sharma", date = "12 Oct 2018")
 public class TreeNode<E extends Comparable<E>> {
     public E element;
     public TreeNode<E> left;

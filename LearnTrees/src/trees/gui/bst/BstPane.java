@@ -14,7 +14,6 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "12 Oct 2018")
 public class BstPane extends Pane {
     private BST<Integer> tree;
     private double radius = 15;

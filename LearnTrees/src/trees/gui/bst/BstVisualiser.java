@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "12 Oct 2018")
+
 public class BstVisualiser extends Application {
     private static ArrayList<Integer> nodes = new ArrayList<>();
     @Override
@@ -25,10 +25,6 @@ public class BstVisualiser extends Application {
         BstPane view = new BstPane(tree);
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "BST Visualisation");
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a BST Visualiser created by Ankit Sharma. This demonstrates the operations of insertion and deletion.\n\n" +
-//                "Insert button inserts a node, delete button deletes a node.", ButtonType.OK);
-//        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-//        alert.show();
     }
 
     public void setStage(BorderPane pane, Stage primaryStage, String title){
@@ -122,5 +118,7 @@ public class BstVisualiser extends Application {
             }
             textField.clear();
         });
+
+
     }
 }

@@ -7,14 +7,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="331.0" prefWidth="428.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trees.controllers.View">
+<AnchorPane prefHeight="331.0" prefWidth="500.0" style="-fx-background-color: #BFEEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trees.controllers.View">
    <children>
-      <ImageView fitHeight="204.0" fitWidth="448.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="204.0" fitWidth="448.0" layoutX="69.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/trees.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="bst" layoutX="26.0" layoutY="250.0" mnemonicParsing="false" onAction="#bstAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #98FB98;" text="BST">
+      <Button fx:id="gt" layoutX="23.0" layoutY="250.0" mnemonicParsing="false" onAction="#gtAction" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: pink;" text="GenericT">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="bst" layoutX="150.0" layoutY="250.0" mnemonicParsing="false" onAction="#bstAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #98FB98;" text="BST">
          <effect>
             <DropShadow />
          </effect>
@@ -22,7 +30,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="avl" layoutX="169.0" layoutY="250.0" mnemonicParsing="false" onAction="#avlAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #F0E68C;" text="AVL">
+      <Button fx:id="avl" layoutX="272.0" layoutY="250.0" mnemonicParsing="false" onAction="#avlAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #F0E68C;" text="AVL">
          <effect>
             <DropShadow />
          </effect>
@@ -30,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="rb" layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#rbAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #CD5C5C;" text="RB">
+      <Button fx:id="rb" layoutX="398.0" layoutY="250.0" mnemonicParsing="false" onAction="#rbAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #CD5C5C;" text="RB">
          <effect>
             <DropShadow />
          </effect>

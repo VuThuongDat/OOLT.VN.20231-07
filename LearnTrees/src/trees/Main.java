@@ -22,15 +22,15 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML/View.fxml"));
             primaryStage.setTitle("Trees");
-            primaryStage.setScene(new Scene(root, 410, 340));
+            primaryStage.setScene(new Scene(root, 500, 340));
         }
         catch (NullPointerException e){
             e.getMessage();
         }
         primaryStage.getIcons().add(new Image("file:data/icon.jpg"));
         primaryStage.show();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "This is a data-tree animation created by Ankit Sharma!", ButtonType.OK);
-        alert.getDialogPane().setMinHeight(80);
-        alert.show();
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION, "This is a data-tree animation created by Ankit Sharma!", ButtonType.OK);
+//        alert.getDialogPane().setMinHeight(80);
+//        alert.show();
     }
 }

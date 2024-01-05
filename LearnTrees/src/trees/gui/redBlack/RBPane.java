@@ -13,8 +13,6 @@ import trees.gui.bst.BstPane;
 import trees.implementation.TreeNode;
 import trees.implementation.redBlack.RedBlackTree;
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "20 Nov 2018")
-
 public class RBPane extends BstPane {
     private RedBlackTree<Integer> tree;
     private double radius = 15;

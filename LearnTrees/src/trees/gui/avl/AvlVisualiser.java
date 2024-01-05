@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import trees.gui.bst.BstVisualiser;
 import trees.implementation.avl.AVL;
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "12 Oct 2018")
+
 public class AvlVisualiser extends BstVisualiser {
     private static AVL<Integer> tree;
     private static AvlPane view;
@@ -19,9 +19,5 @@ public class AvlVisualiser extends BstVisualiser {
         view = new AvlPane(tree);
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "AVL Visualisation");
-        Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a AVL Visualiser created by Ankit Sharma. This demonstrates the operations of insertion and deletion.\n\n" +
-                "Insert button inserts a node, delete button deletes a node.", ButtonType.OK);
-        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-        alert.show();
     }
 }

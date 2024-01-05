@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import trees.implementation.avl.AVL;
 
 
-@trees.implementation.Author(name = "Ankit Sharma", date = "12 Oct 2018")
 public class AvlPane extends BstPane {
     private AVL<Integer> tree;
     private double vGap = 50;
