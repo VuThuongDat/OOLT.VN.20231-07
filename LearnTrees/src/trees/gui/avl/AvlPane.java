@@ -1,14 +1,13 @@
 package trees.gui.avl;
 
 import trees.gui.bst.BstPane;
-
+import trees.tree.avl.AVL;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import trees.implementation.avl.AVL;
 
 
 public class AvlPane extends BstPane {

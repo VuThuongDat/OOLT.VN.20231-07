@@ -9,8 +9,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import trees.implementation.genericT.GenericTree;
-import trees.implementation.genericT.Node;
+import trees.node.Node;
+import trees.tree.genericT.GenericTree;
 
 
 public class GtPane extends Pane {

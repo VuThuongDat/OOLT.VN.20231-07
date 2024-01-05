@@ -1,8 +1,7 @@
 package trees.gui.bst;
 
-import trees.implementation.TreeNode;
-import trees.implementation.bst.BST;
-
+import trees.node.BNode;
+import trees.tree.bst.BST;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -38,7 +37,7 @@ public class BstPane extends Pane {
         }
     }
 
-    protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap, Color color){
+    protected void displayTree(BNode<Integer> root, double x, double y, double hGap, Color color){
         if(root.left != null){
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
             displayTree(root.left, x - hGap, y + vGap, hGap / 2,color);

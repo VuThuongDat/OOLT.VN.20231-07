@@ -5,26 +5,12 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import trees.gui.GenericT.GtPane;
-import trees.implementation.genericT.GenericTree;
-
-import java.util.ArrayList;
-
-
+import trees.tree.genericT.GenericTree;
 
 public class GtVisualiser extends Application {
-    private static ArrayList<Integer> nodes = new ArrayList<>();
-
-    //    public gtVisualiser() throws IllegalAccessException, InstantiationException {
-//        if (getClass() != gtVisualiser.class) {
-//            throw new IllegalAccessException("Access denied");
-//        }
-//        // Hàm tạo mặc định
-//    }
     @Override
     public void start(Stage primaryStage){
         GenericTree<Integer> tree = new GenericTree<>();
@@ -37,7 +23,6 @@ public class GtVisualiser extends Application {
     public void setStage(BorderPane pane, Stage primaryStage, String title){
         Scene scene = new Scene(pane, 800,500);
         primaryStage.setTitle(title);
-        primaryStage.getIcons().add(new Image("file:data/tree.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -1,10 +1,11 @@
-package trees.implementation.genericT;
+package trees.tree.genericT;
 
 import java.util.*;
-public class GenericTree <E extends Comparable<E>> implements GTree<E> {
-    private Node<E> root;
 
-    public GenericTree() {
+import trees.node.Node;
+public class GenericTree <E extends Comparable<E>> {
+    private Node<E> root;
+	public GenericTree() {
         this.root = null;
     }
     public Node<E> getRoot(){
@@ -41,7 +42,7 @@ public class GenericTree <E extends Comparable<E>> implements GTree<E> {
             return true;
         }else {
             Node<E> parentNode = findNode(parentValue);
-            if (parentNode != null) { // nếu cha tồn tại
+            if (parentNode != null) {
                 if (findNode(e) == null) {// gtri con ko tồn tại thì thêm
                     parentNode.children.add(new Node<>(e)); // ktra gia da ton tai chua
                     return true;
@@ -81,7 +82,6 @@ public class GenericTree <E extends Comparable<E>> implements GTree<E> {
         return false;
     }
 
-    @Override
     public boolean search(E e) {
         return findNode(e) != null;
     }

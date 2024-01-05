@@ -1,20 +1,16 @@
-package trees.implementation.avl;
+package trees.tree.avl;
 
-import trees.implementation.TreeNode;
-import trees.implementation.bst.BST;
+import trees.node.BNode;
+import trees.tree.bst.BST;
 
 import java.util.ArrayList;
 
 public class AVL<E extends Comparable<E>> extends BST<E> {
     public AVL(){}
 
-    public AVL(E[] objects){
-        super(objects);
-    }
-
     @Override
-    public TreeNode<E> createNewNode(E e) {
-        return new TreeNode<>(e);
+    public BNode<E> createNewNode(E e) {
+        return new BNode<>(e);
     }
 
     @Override
@@ -27,7 +23,7 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         return true;
     }
 
-    private void updateHeight(TreeNode<E> node){
+    private void updateHeight(BNode<E> node){
         if(node.left == null && node.right == null)
             node.height = 0;
         else if(node.left == null)
@@ -37,13 +33,27 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         else
             node.height = 1 + Math.max(node.left.height, node.right.height);
     }
+    public ArrayList<BNode<E>> path(E e){
+        ArrayList<BNode<E>> list = new ArrayList<>();
+        BNode<E> current = root;
+        while(current != null){
+            list.add(current);
+            if(e.compareTo(current.element) < 0)
+                current = current.left;
+            else if(e.compareTo(current.element) > 0)
+                current = current.right;
+            else
+                break;
+        }
+        return list;
+    }
 
     private void balancePath(E e){
-        ArrayList<TreeNode<E>> path = path(e);
+        ArrayList<BNode<E>> path = path(e);
         for(int i=path.size()-1; i>=0; i--){
-            TreeNode<E> A = path.get(i);
+            BNode<E> A = path.get(i);
             updateHeight(A);
-            TreeNode<E> parentOfA = A == root? null:path.get(i-1);
+            BNode<E> parentOfA = A == root? null:path.get(i-1);
 
             switch (balanceFactor(A)){
                 case -2:
@@ -62,7 +72,7 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         }
     }
 
-    private int balanceFactor(TreeNode<E> node){
+    private int balanceFactor(BNode<E> node){
         if(node.right == null)
             return -node.height;
         else if(node.left == null)
@@ -71,8 +81,8 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
             return node.right.height - node.left.height;
     }
 
-    private void balanceLL(TreeNode<E> A, TreeNode<E> parentOfA){
-        TreeNode<E> B = A.left;
+    private void balanceLL(BNode<E> A, BNode<E> parentOfA){
+        BNode<E> B = A.left;
         if(A == root)
             root = B;
         else{
@@ -87,8 +97,8 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         updateHeight(B);
     }
 
-    private void balanceRR(TreeNode<E> A, TreeNode<E> parentOfA){
-        TreeNode<E> B = A.right;
+    private void balanceRR(BNode<E> A, BNode<E> parentOfA){
+        BNode<E> B = A.right;
         if(A == root)
             root = B;
         else{
@@ -103,9 +113,9 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         updateHeight(B);
     }
 
-    private void balanceLR(TreeNode<E> A, TreeNode<E> parentOfA){
-        TreeNode<E> B = A.left;
-        TreeNode<E> C = B.right;
+    private void balanceLR(BNode<E> A, BNode<E> parentOfA){
+        BNode<E> B = A.left;
+        BNode<E> C = B.right;
         if(A == root)
             root = C;
         else{
@@ -123,9 +133,9 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         updateHeight(C);
     }
 
-    private void balanceRL(TreeNode<E> A, TreeNode<E> parentOfA){
-        TreeNode<E> B = A.right;
-        TreeNode<E> C = B.left;
+    private void balanceRL(BNode<E> A, BNode<E> parentOfA){
+        BNode<E> B = A.right;
+        BNode<E> C = B.left;
         if(A == root)
             root = C;
         else{
@@ -148,8 +158,8 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         if(root == null)
             return false;
 
-        TreeNode<E> parent = null;
-        TreeNode<E> current = root;
+        BNode<E> parent = null;
+        BNode<E> current = root;
         while(current != null){
             if(element.compareTo(current.element) < 0){
                 parent = current;
@@ -175,8 +185,8 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
             }
         }
         else{
-            TreeNode<E> parentOfRightMost = current;
-            TreeNode<E> rightMost = current.left;
+            BNode<E> parentOfRightMost = current;
+            BNode<E> rightMost = current.left;
 
             while(rightMost.right != null){
                 parentOfRightMost = rightMost;
@@ -191,7 +201,6 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
                 parentOfRightMost.left = rightMost.left;
             balancePath(parentOfRightMost.element);
         }
-        size--;
         return true;
     }
 }

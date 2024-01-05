@@ -1,11 +1,9 @@
 package trees.gui.avl;
 
-import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import trees.gui.bst.BstVisualiser;
-import trees.implementation.avl.AVL;
+import trees.tree.avl.AVL;
 
 
 public class AvlVisualiser extends BstVisualiser {

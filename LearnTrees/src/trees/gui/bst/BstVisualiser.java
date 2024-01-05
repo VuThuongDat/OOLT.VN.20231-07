@@ -1,16 +1,14 @@
 package trees.gui.bst;
 
 import javafx.scene.layout.VBox;
-import trees.implementation.bst.BST;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import trees.tree.bst.BST;
 
 import java.util.ArrayList;
 
@@ -29,8 +27,7 @@ public class BstVisualiser extends Application {
 
     public void setStage(BorderPane pane, Stage primaryStage, String title){
         Scene scene = new Scene(pane, 500,500);
-        primaryStage.setTitle(title);
-        primaryStage.getIcons().add(new Image("file:data/tree.png"));
+        primaryStage.setTitle(title);;
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -49,23 +46,18 @@ public class BstVisualiser extends Application {
         Button update = new Button("Update");
         Button search = new Button("Search");
         Button traverseBFS = new Button("Traverse BFS");
+        Button traverseDFS = new Button("Traverse DFS");
         Button back = new Button("Back");
         Button undo = new Button("Updo");
         Button repo = new Button("Repo");
-        addFunctionalities(textField, insert, delete, tree, view);
-//
-//        HBox hBox = new HBox(5);
-//        hBox.getChildren().addAll(insert, delete,search,new Label("Enter a value"), textField);
-//        hBox.getChildren().addAll(update,new Label("Old value"), textField,new Label("New value"), textField,traverseBFS );
-//        hBox.getChildren().addAll(undo,repo,back);
-//        hBox.setAlignment(Pos.BASELINE_CENTER);
-//        pane.setBottom(hBox);
+        addFunctionalities(textField,textField1,textField2, insert, delete,traverseBFS,traverseDFS,search,update,tree, view);
+
         HBox hBoxTop = new HBox(5);
         hBoxTop.getChildren().addAll(new Label("Enter a value"), textField,insert, delete, search);
         hBoxTop.setAlignment(Pos.BASELINE_CENTER);
 
         HBox hBoxMiddle = new HBox(5);
-        hBoxMiddle.getChildren().addAll(  traverseBFS);
+        hBoxMiddle.getChildren().addAll(traverseBFS,traverseDFS);
         hBoxMiddle.setAlignment(Pos.BASELINE_CENTER);
 
         HBox hBoxBottom = new HBox(5);
@@ -83,7 +75,7 @@ public class BstVisualiser extends Application {
         pane.setBottom(vBox);
     }
 
-    public void addFunctionalities(TextField textField, Button insert, Button delete, BST<Integer> tree, BstPane view){
+    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,BST<Integer> tree, BstPane view){
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
@@ -106,19 +98,75 @@ public class BstVisualiser extends Application {
         });
 
         delete.setOnAction(e->{
-            int key = Integer.parseInt(textField.getText());
-            if(!tree.search(key)){
-                view.displayTree();
-                view.setStatus(key +" is not present!");
-            }
-            else{
-                tree.delete(key);
-                view.displayTree();
-                view.setStatus(key+" is replaced by its predecessor and is deleted!");
-            }
-            textField.clear();
+        	if(textField.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
+                alert.getDialogPane().setMinHeight(80);
+                alert.show();
+        	}
+        	else {
+        		int key = Integer.parseInt(textField.getText());
+        		if(!tree.search(key)){
+        			view.displayTree();
+        			view.setStatus(key +" is not present!");
+        		}
+        		else{
+        			tree.delete(key);
+        			view.displayTree();
+        			view.setStatus(key+" is replaced by its predecessor and is deleted!");
+        		}
+        		textField.clear();
+        	}
         });
-
-
+        search.setOnAction(e->{
+            if(textField.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
+                alert.getDialogPane().setMinHeight(80);
+                alert.show();
+            }
+            else {
+                int key = Integer.parseInt(textField.getText());
+                nodes.add(key);
+                view.displayTree();
+                if (tree.search(key)) {
+                    view.setStatus(key + " is found!");
+                } else {
+                    view.setStatus(key + " is not found!");
+                }
+                textField.clear();
+            }
+        });
+        update.setOnAction(e->{
+            if(textField1.getText().length() == 0||textField2.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered old value or new value!", ButtonType.OK);
+                alert.getDialogPane().setMinHeight(80);
+                alert.show();
+            }
+            else {
+                int key1 = Integer.parseInt(textField1.getText());
+                int key2 = Integer.parseInt(textField2.getText());
+                nodes.add(key1);
+                if (tree.search(key1)&&!tree.search(key2)) {
+                    tree.update(key1,key2);
+                    view.displayTree();
+                    view.setStatus(key1 + " is updated!");
+                } else if (!tree.search(key1)){
+                    view.displayTree();
+                    view.setStatus(key1 + " is not found!");
+                } else if (tree.search(key1)&&tree.search(key2)){
+                	view.displayTree();
+                    view.setStatus(key2 + " is already present!");
+                }
+                textField1.clear();
+                textField2.clear();
+            }
+        });
+        traverseBFS.setOnAction(e->{
+        	view.displayTree();
+            view.setStatus(tree.traverseBFS());
+        });
+        traverseDFS.setOnAction(e->{
+        	view.displayTree();
+            view.setStatus(tree.traverseDFS());
+        });
     }
 }
