@@ -15,7 +15,6 @@ public class BbtPane extends AvlPane {
     private double vGap = 50;
     
     BbtPane(BBT<Integer> tree){
-    	Stage primaryStage = new Stage();
         this.tree = tree;
         setStatus("Tree is empty");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "FFA500"), CornerRadii.EMPTY, Insets.EMPTY)));
