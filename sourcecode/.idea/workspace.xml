@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5bf6878-543f-44b0-ab99-8edbfdedb1ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TreeDataStructures/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TreeDataStructures/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TreeDataStructures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TreeDataStructures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/avl/AvlVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/avl/AvlVisualiser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/bbt/BbtVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/bbt/BbtVisualiser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/bst/BstVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/TreeDataStructures/src/trees/gui/bst/BstVisualiser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
