@@ -28,4 +28,11 @@ public class AvlPane extends BstPane {
             displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.SEAGREEN);
         }
     }
+    @Override
+    public void displayTree(int value){
+        this.getChildren().clear();
+        if(tree.getRoot() != null){
+            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.SEAGREEN,value);
+        }
+    }
 }

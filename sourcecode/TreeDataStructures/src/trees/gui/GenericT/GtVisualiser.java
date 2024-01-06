@@ -96,7 +96,7 @@ public class GtVisualiser extends Application {
             else {
                 int key = Integer.parseInt(textField.getText());
                 if (tree.search(key)) {
-                    view.displayTree();
+                    view.displayTree(key);
                     view.setStatus(key + " is found");
                 } else {
                     view.displayTree();

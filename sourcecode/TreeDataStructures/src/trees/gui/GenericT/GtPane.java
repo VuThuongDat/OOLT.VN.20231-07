@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import trees.node.BNode;
 import trees.node.Node;
 import trees.tree.genericT.GenericTree;
 
@@ -37,6 +38,13 @@ public class GtPane extends Pane {
         }
     }
 
+    public void displayTree(int value){
+        this.getChildren().clear();
+        if(tree.getRoot() != null){
+            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.CYAN,value);
+        }
+    }
+
     protected void displayTree(Node<Integer> root, double x, double y, double hGap, Color color){
         if(!root.children.isEmpty()){
             double startX = x - hGap * (root.children.size() - 1) / 2;
@@ -54,5 +62,25 @@ public class GtPane extends Pane {
         circle.setStroke(Color.BLACK);
         getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
     }
+    protected void displayTree(Node<Integer> root, double x, double y, double hGap, Color color, int value){
+        if(!root.children.isEmpty()){
+            double startX = x - hGap * (root.children.size() - 1) / 2;
+            // Lặp qua từng con và kết nối chúng với cha (root)
+            for (Node<Integer> child : root.children) {
+                getChildren().add(new Line(x, y, startX, y + vGap));
+                // Gọi đệ quy để hiển thị cây con
+                displayTree(child, startX, y + vGap, hGap / 2, color,value);
+                // Tăng giá trị startX để đảm bảo vị trí đúng cho con tiếp theo
+                startX += hGap;
+            }
+        }
 
+        Circle circle = new Circle(x, y, radius);
+        circle.setFill(color);
+        circle.setStroke(Color.BLACK);
+        if(root.element==value) {
+            circle.setFill(Color.RED);
+        }
+        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
+    }
 }
