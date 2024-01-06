@@ -7,22 +7,18 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 
 public class AvlPane extends BstPane {
     private AVL<Integer> tree;
     private double vGap = 50;
-
+    
+    protected AvlPane(){ };
+    
     AvlPane(AVL<Integer> tree){
         this.tree = tree;
         setStatus("Tree is empty");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-
-    @Override
-    public void setStatus(String msg){
-        getChildren().add(new Text(20, 20, msg));
     }
 
     @Override

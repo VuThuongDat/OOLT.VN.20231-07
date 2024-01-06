@@ -1,15 +1,12 @@
 package trees.tree.bst;
 
 import java.util.Queue;
-
 import trees.node.BNode;
-
 import java.util.LinkedList;
 
 public class BST<E extends Comparable<E>> {
 
     public BNode<E> root;
-
     private boolean search(BNode<E> root, E e){
         if(root == null)
             return false;
@@ -45,7 +42,6 @@ public class BST<E extends Comparable<E>> {
                 return null;
         }
         return root;
-
     }
 
     public boolean insert(E e) {

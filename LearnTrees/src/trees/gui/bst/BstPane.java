@@ -36,7 +36,12 @@ public class BstPane extends Pane {
             displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.MEDIUMPURPLE);
         }
     }
-
+     public void displayTree(int value){
+         this.getChildren().clear();
+         if(tree.getRoot() != null){
+             displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.MEDIUMPURPLE,value);
+         }
+     }
     protected void displayTree(BNode<Integer> root, double x, double y, double hGap, Color color){
         if(root.left != null){
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
@@ -53,5 +58,23 @@ public class BstPane extends Pane {
         circle.setStroke(Color.BLACK);
         getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
     }
+    protected void displayTree(BNode<Integer> root, double x, double y, double hGap, Color color,int value){
+        if(root.left != null){
+            getChildren().add(new Line(x - hGap, y + vGap, x, y));
+            displayTree(root.left, x - hGap, y + vGap, hGap / 2,color,value);
+        }
 
+        if (root.right != null){
+            getChildren().add(new Line(x + hGap, y + vGap, x, y));
+            displayTree(root.right, x + hGap, y + vGap, hGap / 2, color,value);
+        }
+
+        Circle circle = new Circle(x, y, radius);
+        circle.setFill(color);
+        circle.setStroke(Color.BLACK);
+        if(root.element==value) {
+        	circle.setFill(Color.RED);
+        }
+        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
+    }
 }

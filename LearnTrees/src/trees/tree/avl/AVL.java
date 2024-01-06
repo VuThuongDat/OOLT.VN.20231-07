@@ -2,11 +2,9 @@ package trees.tree.avl;
 
 import trees.node.BNode;
 import trees.tree.bst.BST;
-
 import java.util.ArrayList;
 
 public class AVL<E extends Comparable<E>> extends BST<E> {
-    public AVL(){}
 
     @Override
     public BNode<E> createNewNode(E e) {

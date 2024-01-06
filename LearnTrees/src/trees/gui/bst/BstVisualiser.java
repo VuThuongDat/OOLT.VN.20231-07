@@ -10,12 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import trees.tree.bst.BST;
 
-import java.util.ArrayList;
-
-
-
 public class BstVisualiser extends Application {
-    private static ArrayList<Integer> nodes = new ArrayList<>();
     @Override
     public void start(Stage primaryStage){
         BST<Integer> tree = new BST<>();
@@ -83,8 +78,7 @@ public class BstVisualiser extends Application {
                 alert.show();
             }
             else {
-                int key = Integer.parseInt(textField.getText());
-                nodes.add(key);
+                int key = Integer.parseInt(textField.getText());                
                 if (tree.search(key)) {
                     view.displayTree();
                     view.setStatus(key + " is already present!");
@@ -125,11 +119,11 @@ public class BstVisualiser extends Application {
             }
             else {
                 int key = Integer.parseInt(textField.getText());
-                nodes.add(key);
-                view.displayTree();
                 if (tree.search(key)) {
+                	view.displayTree(key);
                     view.setStatus(key + " is found!");
                 } else {
+                	view.displayTree();
                     view.setStatus(key + " is not found!");
                 }
                 textField.clear();
@@ -144,7 +138,6 @@ public class BstVisualiser extends Application {
             else {
                 int key1 = Integer.parseInt(textField1.getText());
                 int key2 = Integer.parseInt(textField2.getText());
-                nodes.add(key1);
                 if (tree.search(key1)&&!tree.search(key2)) {
                     tree.update(key1,key2);
                     view.displayTree();
@@ -170,3 +163,4 @@ public class BstVisualiser extends Application {
         });
     }
 }
+	

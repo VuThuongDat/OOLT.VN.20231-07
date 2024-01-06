@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import trees.gui.GenericT.GtVisualiser;
 import trees.gui.avl.AvlVisualiser;
 import trees.gui.bst.BstVisualiser;
-
+import trees.gui.bbt.BbtVisualiser;
 public class View {
 
 
@@ -17,6 +17,9 @@ public class View {
     @FXML
     private Button gt;
     @FXML
+    private Button bbt;
+    @FXML
+    
     private void gtAction() { gt.setOnAction(e->setStage1(new GtVisualiser()));}
 
     @FXML
@@ -27,7 +30,10 @@ public class View {
     private void avlAction(){
         avl.setOnAction(e-> setStage(new AvlVisualiser()));
     }
-
+    @FXML
+    private void bbtAction(){
+        bbt.setOnAction(e-> setStage(new BbtVisualiser()));
+    }
     private void setStage(BstVisualiser menu){
         Stage menuStage = new Stage();
         menu.start(menuStage);

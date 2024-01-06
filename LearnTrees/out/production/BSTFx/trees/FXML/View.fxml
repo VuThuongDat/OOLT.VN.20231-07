@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -22,7 +23,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="bst" layoutX="150.0" layoutY="250.0" mnemonicParsing="false" onAction="#bstAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #98FB98;" text="BST">
+      <Button fx:id="bst" layoutX="145.0" layoutY="250.0" mnemonicParsing="false" onAction="#bstAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #98FB98;" text="BST">
          <effect>
             <DropShadow />
          </effect>
@@ -30,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="avl" layoutX="272.0" layoutY="250.0" mnemonicParsing="false" onAction="#avlAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #F0E68C;" text="AVL">
+      <Button fx:id="avl" layoutX="262.0" layoutY="250.0" mnemonicParsing="false" onAction="#avlAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: #F0E68C;" text="AVL">
          <effect>
             <DropShadow />
          </effect>
@@ -38,5 +39,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="bbt" layoutX="383.0" layoutY="250.0" mnemonicParsing="false" onAction="#bbtAction" prefHeight="44.0" prefWidth="77.0" style="-fx-background-color: RED;" text="BBT">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Label layoutX="85.0" layoutY="74.0" text="Visualization of operations" textFill="GREY">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="112.0" layoutY="132.0" text="on tree data structures" textFill="GREY">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
