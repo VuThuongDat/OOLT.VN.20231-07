@@ -7,16 +7,16 @@ import trees.tree.avl.AVL;
 
 
 public class AvlVisualiser extends BstVisualiser {
-	Stage primaryStage = new Stage();
+	//Stage primaryStage = new Stage();
     private static AVL<Integer> tree;
     private static AvlPane view;
     @Override
     public void start(Stage primaryStage){
-    	this.primaryStage=primaryStage;
+    	//this.primaryStage=primaryStage;
         tree = new AVL<>();
         BorderPane pane = new BorderPane();
         view = new AvlPane(tree);
-        setPane(pane, view, tree);
+        setPane(pane, view, tree,primaryStage);
         setStage(pane, primaryStage, "AVL Visualisation");
     }
 }

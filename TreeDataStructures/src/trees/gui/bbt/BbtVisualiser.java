@@ -14,7 +14,7 @@ public class BbtVisualiser extends AvlVisualiser {
         tree = new BBT<>();
         BorderPane pane = new BorderPane();
         view = new BbtPane(tree);
-        setPane(pane, view, tree);
+        setPane(pane, view, tree,primaryStage);
         setStage(pane, primaryStage, "BBT Visualisation");
     }
 }

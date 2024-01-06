@@ -11,14 +11,14 @@ import javafx.stage.Stage;
 import trees.tree.bst.BST;
 
 public class BstVisualiser extends Application {
-	Stage primaryStage = new Stage();
+	//Stage primaryStage = new Stage();
     @Override
     public void start(Stage primaryStage){
-    	this.primaryStage=primaryStage;
+    	//this.primaryStage=primaryStage;
         BST<Integer> tree = new BST<>();
         BorderPane pane = new BorderPane();
         BstPane view = new BstPane(tree);
-        setPane(pane, view, tree);
+        setPane(pane, view, tree,primaryStage);
         setStage(pane, primaryStage, "BST Visualisation");
     }
 
@@ -29,7 +29,7 @@ public class BstVisualiser extends Application {
         primaryStage.show();
     }
 
-    public void setPane(BorderPane pane, BstPane view, BST<Integer> tree){
+    public void setPane(BorderPane pane, BstPane view, BST<Integer> tree, Stage primaryStage){
         pane.setCenter(view);
         TextField textField = new TextField();
         TextField textField1 = new TextField();
@@ -47,7 +47,7 @@ public class BstVisualiser extends Application {
         Button back = new Button("Back");
         Button undo = new Button("Updo");
         Button repo = new Button("Repo");
-        addFunctionalities(textField,textField1,textField2, insert, delete,traverseBFS,traverseDFS,search,update,back,tree, view);
+        addFunctionalities(textField,textField1,textField2, insert, delete,traverseBFS,traverseDFS,search,update,back,tree, view,primaryStage);
 
         HBox hBoxTop = new HBox(5);
         hBoxTop.getChildren().addAll(new Label("Enter a value"), textField,insert, delete, search);
@@ -72,7 +72,7 @@ public class BstVisualiser extends Application {
         pane.setBottom(vBox);
     }
 
-    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST<Integer> tree, BstPane view){
+    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST<Integer> tree, BstPane view,Stage primaryStage){
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
