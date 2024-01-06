@@ -43,41 +43,29 @@ public class GenericTree <E extends Comparable<E>> {
         }else {
             Node<E> parentNode = findNode(parentValue);
             if (parentNode != null) {
-                if (findNode(e) == null) {// gtri con ko tồn tại thì thêm
-                    parentNode.children.add(new Node<>(e)); // ktra gia da ton tai chua
-                    return true;
-                }
-                else return false;//System.out.println("Node with value " + e + " already exist");
-            } else{
-                // nếu giá trị cha chưa tồn tại tạo thêm nhánh vào root
-                Node<E> parentNode1 = new Node<E>(parentValue);
-                root.children.add(parentNode1);
-                if (findNode(e) == null) {// gtri con ko tồn tại thì thêm
-                    parentNode1.children.add(new Node<E>(e)); // ktra gia da ton tai chua
+                if (findNode(e) == null) {
+                    parentNode.children.add(new Node<>(e));
                     return true;
                 }
                 else return false;
-                //System.out.println("Parent node with value " + parentValue + " not found");
+            } else{
+                Node<E> parentNode1 = new Node<E>(parentValue);
+                root.children.add(parentNode1);
+                if (findNode(e) == null) {
+                    parentNode1.children.add(new Node<E>(e));
+                    return true;
+                }
+                else return false;
             }
         }
-        //return root;
     }
-    //    @Override
-//     public boolean insert(E p,E c) {
-//         root = insert(p,c);
-//         if(root == null)
-//             return false;
-//         return true;
-//     }
     public boolean update(E oldE, E newE) {
         Node<E> nodeToUpdate = findNode(oldE);
         if (nodeToUpdate != null) {
             if(findNode(newE) == null) nodeToUpdate.element = newE;
             else return false;
-            //System.out.println("Node with value " + newE + " already exist");
         } else {
             return false;
-            //System.out.println("Node with value " + oldE + " not found");
         }
         return false;
     }
@@ -86,11 +74,8 @@ public class GenericTree <E extends Comparable<E>> {
         return findNode(e) != null;
     }
 
-
-
     public boolean delete(E e) {
         if (root == null) {
-            //System.out.println("The tree is empty. Cannot delete.");
             return false;
         }
 
@@ -99,16 +84,16 @@ public class GenericTree <E extends Comparable<E>> {
                 root = null;
                 return false;
             } else {
-                Node<E> newRoot = root.children.get(0); // đặt root mới là con đầu tiên
-                root.children.remove(0); // xóa đi con đầu tiên của root cũ
+                Node<E> newRoot = root.children.get(0);
+                root.children.remove(0);
                 while (!root.children.isEmpty()) {
-                    newRoot.children.add(root.children.remove(0)); // thêm các con vào root mới
+                    newRoot.children.add(root.children.remove(0));
                 }
                 root = newRoot;
                 return true;
             }
         } else {
-            //root = deleteRec(root, value);
+
             Node<E> node = findNode(e);
             Node<E> parentNode = findParentNode(root, e);
             if (parentNode != null) {
@@ -140,19 +125,6 @@ public class GenericTree <E extends Comparable<E>> {
         return null;
     }
 
-//    public boolean delete(E e){
-//        root = delete(root,e);
-//        if(root == null) return false;
-//        return true;
-//    }
-//    public void search(Node<E> root, E value) {
-//        //return findNodeRec(root, value) != null;
-//        Node<E> node = findNodeRec(root, value);
-//        if(node != null) System.out.println("Node with value " + value +" found");
-//        else  System.out.println("Node with value " + value +" NOT found");
-//    }
-
-
     public String traverseBFS() {
         StringBuilder result = new StringBuilder();
 
@@ -173,15 +145,29 @@ public class GenericTree <E extends Comparable<E>> {
                 }
                 count--;
             }
-
-            //result.append("\n"); // Xuống dòng sau khi in xong 1 cấp độ
+        }
+        return result.toString().trim();
+    }
+    public String traverseDFS() {
+        if (root == null) {
+            return "";
         }
 
-        return result.toString().trim(); // Loại bỏ khoảng trắng cuối cùng
+        StringBuilder result = new StringBuilder();
+        traverseDFS(root, result);
+
+        return result.toString();
     }
 
+    private void traverseDFS(Node<E> node, StringBuilder result) {
+        if (node == null) {
+            return;
+        }
 
-    public Iterator<E> iterator() {
-        return null;
+        result.append(node.element).append(" ");
+
+        for (Node<E> child : node.children) {
+            traverseDFS(child, result);
+        }
     }
 }

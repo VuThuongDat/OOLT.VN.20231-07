@@ -8,8 +8,6 @@ import trees.gui.avl.AvlVisualiser;
 import trees.gui.bst.BstVisualiser;
 import trees.gui.bbt.BbtVisualiser;
 public class View {
-
-
     @FXML
     private Button avl;
     @FXML

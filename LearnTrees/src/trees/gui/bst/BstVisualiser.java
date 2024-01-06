@@ -11,8 +11,10 @@ import javafx.stage.Stage;
 import trees.tree.bst.BST;
 
 public class BstVisualiser extends Application {
+	Stage primaryStage = new Stage();
     @Override
     public void start(Stage primaryStage){
+    	this.primaryStage=primaryStage;
         BST<Integer> tree = new BST<>();
         BorderPane pane = new BorderPane();
         BstPane view = new BstPane(tree);
@@ -45,7 +47,7 @@ public class BstVisualiser extends Application {
         Button back = new Button("Back");
         Button undo = new Button("Updo");
         Button repo = new Button("Repo");
-        addFunctionalities(textField,textField1,textField2, insert, delete,traverseBFS,traverseDFS,search,update,tree, view);
+        addFunctionalities(textField,textField1,textField2, insert, delete,traverseBFS,traverseDFS,search,update,back,tree, view);
 
         HBox hBoxTop = new HBox(5);
         hBoxTop.getChildren().addAll(new Label("Enter a value"), textField,insert, delete, search);
@@ -70,7 +72,7 @@ public class BstVisualiser extends Application {
         pane.setBottom(vBox);
     }
 
-    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,BST<Integer> tree, BstPane view){
+    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST<Integer> tree, BstPane view){
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
@@ -160,6 +162,9 @@ public class BstVisualiser extends Application {
         traverseDFS.setOnAction(e->{
         	view.displayTree();
             view.setStatus(tree.traverseDFS());
+        });
+        back.setOnAction(e->{
+        	primaryStage.close();
         });
     }
 }
