@@ -18,7 +18,7 @@ public class Test {
 //        tree.update(35,37);
 //        tree.delete(35);
         tree.insert(32,24);
-
-        tree.traverseBFS();
+        System.out.println(tree.traverseDFS());
+        System.out.println(tree.traverseBFS());
     }
 }

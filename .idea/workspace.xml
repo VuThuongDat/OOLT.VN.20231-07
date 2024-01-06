@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5bf6878-543f-44b0-ab99-8edbfdedb1ca" name="Changes" comment="" />
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="2d12a8af-9e09-4aec-8a80-d86236087caa" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,15 +22,22 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
+<<<<<<< Updated upstream
   "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="2aTQh4eFWOmzW9BCChRSmZYyH2P" />
+=======
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2aZ5Tk6zdBK1ZBmjdZ3Frt7W9Ft" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< Updated upstream
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -47,6 +59,14 @@
       </list>
     </recent_temporary>
   </component>
+=======
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+>>>>>>> Stashed changes
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -57,11 +77,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< Updated upstream
       <changelist id="f5bf6878-543f-44b0-ab99-8edbfdedb1ca" name="Changes" comment="" />
       <created>1704340205152</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704340205152</updated>
+=======
+      <changelist id="2d12a8af-9e09-4aec-8a80-d86236087caa" name="Changes" comment="" />
+      <created>1704513270526</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704513270526</updated>
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

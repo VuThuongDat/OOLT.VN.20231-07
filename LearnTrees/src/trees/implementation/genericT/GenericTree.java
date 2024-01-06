@@ -180,6 +180,30 @@ public class GenericTree <E extends Comparable<E>> implements GTree<E> {
         return result.toString().trim(); // Loại bỏ khoảng trắng cuối cùng
     }
 
+    @Override
+    public String traverseDFS() {
+        if (root == null) {
+            return ""; // Trả về chuỗi rỗng nếu nút gốc là null
+        }
+
+        StringBuilder result = new StringBuilder();
+        traverseDFS(root, result); // Gọi đệ quy DFS với nút gốc và StringBuilder
+
+        return result.toString();
+    }
+
+    private void traverseDFS(Node<E> node, StringBuilder result) {
+        if (node == null) {
+            return;
+        }
+
+        result.append(node.element).append(" ");
+
+        for (Node<E> child : node.children) {
+            traverseDFS(child, result);
+        }
+    }
+
 
     public Iterator<E> iterator() {
         return null;

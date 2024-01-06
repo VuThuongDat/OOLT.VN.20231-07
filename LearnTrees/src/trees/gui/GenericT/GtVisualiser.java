@@ -30,11 +30,11 @@ public class GtVisualiser extends Application {
         GenericTree<Integer> tree = new GenericTree<>();
         BorderPane pane = new BorderPane();
         GtPane view = new GtPane(tree);
-        setPane(pane, view, tree);
+        setPane(pane, view, tree, primaryStage);
         setStage(pane, primaryStage, "GT Visualisation");
     }
 
-    public void setStage(BorderPane pane, Stage primaryStage, String title){
+    public void setStage(BorderPane pane, Stage primaryStage,String title){
         Scene scene = new Scene(pane, 800,500);
         primaryStage.setTitle(title);
         primaryStage.getIcons().add(new Image("file:data/tree.png"));
@@ -42,7 +42,7 @@ public class GtVisualiser extends Application {
         primaryStage.show();
     }
 
-    public void setPane(BorderPane pane, GtPane view, GenericTree<Integer> tree){
+    public void setPane(BorderPane pane, GtPane view, GenericTree<Integer> tree, Stage primaryStage){
         pane.setCenter(view);
         TextField textParent = new TextField();
         TextField textChild = new TextField();
@@ -62,13 +62,15 @@ public class GtVisualiser extends Application {
         Button update = new Button("Update");
         Button search = new Button("Search");
         Button traverseBFS = new Button("Traverse BFS");
+        Button traverseDFS = new Button("Traverse DFS");
         Button back = new Button("Back");
         Button undo = new Button("Updo");
         Button repo = new Button("Repo");
 
         addFunctionInsert(textParent,textChild,insert,tree,view);
         addFunctionDelSearch(textDel,delete, search,tree, view);
-        addFunctionUpdate(textOldValue,textNewValue,update,traverseBFS,tree,view);
+        addFunctionUpdate(textOldValue,textNewValue,update,traverseBFS,traverseDFS,tree,view);
+        addFunctionBack(back,primaryStage);
 
 
         HBox hBoxTop = new HBox(5);
@@ -84,7 +86,7 @@ public class GtVisualiser extends Application {
         hBoxMiddle1.setAlignment(Pos.BASELINE_CENTER);
 
         HBox hBoxBottom = new HBox(5);
-        hBoxBottom.getChildren().addAll(traverseBFS);
+        hBoxBottom.getChildren().addAll(traverseBFS,traverseDFS);
         hBoxBottom.setAlignment(Pos.BASELINE_CENTER);
 
         HBox hBoxActions = new HBox(5);
@@ -169,7 +171,7 @@ public class GtVisualiser extends Application {
         });
     }
 
-    public void addFunctionUpdate(TextField textOld,TextField textNew, Button update,Button traverseBFS, GenericTree<Integer> tree, GtPane view) {
+    public void addFunctionUpdate(TextField textOld,TextField textNew, Button update,Button traverseBFS,Button traverseDFS, GenericTree<Integer> tree, GtPane view) {
         update.setOnAction(e -> {
             if (textOld.getText().length() == 0 || textNew.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered enought!", ButtonType.OK);
@@ -202,6 +204,15 @@ public class GtVisualiser extends Application {
             view.setStatus(tree.traverseBFS());
         });
 
+        traverseDFS.setOnAction(e->{
+            view.displayTree();
+            view.setStatus(tree.traverseDFS());
+        });
+    }
+    public void addFunctionBack(Button back, Stage stage){
+        back.setOnAction(e->{
+            stage.close();
+        });
 
     }
 

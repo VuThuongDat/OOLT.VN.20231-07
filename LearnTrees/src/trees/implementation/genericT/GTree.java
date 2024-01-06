@@ -6,4 +6,5 @@ public interface GTree<E extends Comparable<E>> {
     public boolean update(E o, E n);
     public boolean search(E e);
     public String traverseBFS();
+    public String traverseDFS();
 }
