@@ -7,8 +7,6 @@
     <list default="true" id="822f64c6-1df7-4657-bc8a-4c27e0be48f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../presentation/Presentation.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../../presentation/Presentation.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/FXML/View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/FXML/View.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/controllers/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/controllers/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
