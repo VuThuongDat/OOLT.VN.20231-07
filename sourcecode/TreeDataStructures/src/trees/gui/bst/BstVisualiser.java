@@ -73,6 +73,7 @@ public class BstVisualiser extends Application {
     }
 
     public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST<Integer> tree, BstPane view,Stage primaryStage){
+
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
@@ -80,14 +81,14 @@ public class BstVisualiser extends Application {
                 alert.show();
             }
             else {
-                int key = Integer.parseInt(textField.getText());                
+                int key = Integer.parseInt(textField.getText());
                 if (tree.search(key)) {
                     view.displayTree();
-                    view.setStatus(key + " is already present!");
+                    view.setStatus(key + " is already present!" );
                 } else {
                     tree.insert(key);
                     view.displayTree();
-                    view.setStatus(key + " is inserted!");
+                    view.setStatus(key + " is inserted!"+ tree.height(tree.getRoot()));
                 }
                 textField.clear();
             }

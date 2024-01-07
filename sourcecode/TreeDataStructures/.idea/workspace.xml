@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="822f64c6-1df7-4657-bc8a-4c27e0be48f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/gui/GenericT/GtPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/GenericT/GtPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/gui/GenericT/GtVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/GenericT/GtVisualiser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/gui/avl/AvlPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/avl/AvlPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/gui/bbt/BbtPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/bbt/BbtPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trees/gui/bbt/BbtVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/bbt/BbtVisualiser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trees/gui/bst/BstVisualiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/gui/bst/BstVisualiser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trees/tree/bst/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trees/tree/bst/BST.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />

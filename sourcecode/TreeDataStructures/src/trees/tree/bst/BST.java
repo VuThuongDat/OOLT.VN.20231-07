@@ -1,47 +1,42 @@
 package trees.tree.bst;
 
-import java.util.Queue;
 import trees.node.BNode;
-import java.util.LinkedList;
+import trees.tree.bt.BT;
 
-public class BST<E extends Comparable<E>> {
+public class BST<E extends Comparable<E>> extends BT<E> {
 
-    public BNode<E> root;
-    private boolean search(BNode<E> root, E e){
-        if(root == null)
-            return false;
-        else if(e.compareTo(root.element) == 0)
-            return true;
+//    public BNode<E> root;
+//    private boolean search(BNode<E> root, E e){
+//        if(root == null)
+//            return false;
+//        else if(e.compareTo(root.element) == 0)
+//            return true;
+//        else{
+//            if(e.compareTo(root.element) > 0)
+//                return search(root.right, e);
+//            else
+//                return search(root.left, e);
+//        }
+//    }
+
+
+
+//    public boolean search(E e) {
+//        return search(root, e);
+//    }
+
+    public BNode<E> insert(BNode<E> node, E e){
+        if(node == null)
+            node = createNewNode(e);
         else{
-            if(e.compareTo(root.element) > 0)
-                return search(root.right, e);
-            else
-                return search(root.left, e);
-        }
-    }
-
-    public int height(BNode<E> N) {
-        if (N == null)
-            return 0;
-        return N.height;
-    }
-
-    public boolean search(E e) {
-        return search(root, e);
-    }
-
-    public BNode<E> insert(BNode<E> root, E e){
-        if(root == null)
-            root = createNewNode(e);
-        else{
-            if(e.compareTo(root.element) > 0)
-                root.right = insert(root.right, e);
-            else if(e.compareTo(root.element) < 0)
-                root.left = insert(root.left, e);
+            if(e.compareTo(node.element) > 0)
+                node.right = insert(node.right, e);
+            else if(e.compareTo(node.element) < 0)
+                node.left = insert(node.left, e);
             else
                 return null;
         }
-        return root;
+        return node;
     }
 
     public boolean insert(E e) {
@@ -51,57 +46,57 @@ public class BST<E extends Comparable<E>> {
         return true;
     }
 
-    public BNode<E> createNewNode(E e){
-        return new BNode<>(e);
-    }
-
-    public BNode<E> getRoot(){
-        return root;
-    }
-
-    public String traverseBFS() {
-        StringBuilder result = new StringBuilder();
-        if (root == null) {
-            return result.toString();
-        }
-
-        Queue<BNode<E>> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            BNode<E> current = queue.poll();
-            result.append(current.element).append(" ");
-
-            if (current.left != null) {
-                queue.offer(current.left);
-            }
-
-            if (current.right != null) {
-                queue.offer(current.right);
-            }
-        }
-
-        return result.toString().trim();
-    }
-    public String traverseDFS() {
-        StringBuilder result = new StringBuilder();
-        if (root == null) {
-            return result.toString();
-        }
-        traverseDFS(root, result);
-
-        return result.toString().trim();
-    }
-
-    private void traverseDFS(BNode<E> node, StringBuilder result) {
-        if (node != null) {
-            result.append(node.element).append(" ");
-
-            traverseDFS(node.left, result);
-            
-            traverseDFS(node.right, result);
-        }
-    }
+//    public BNode<E> createNewNode(E e){
+//        return new BNode<>(e);
+//    }
+//
+//    public BNode<E> getRoot(){
+//        return root;
+//    }
+//
+//    public String traverseBFS() {
+//        StringBuilder result = new StringBuilder();
+//        if (root == null) {
+//            return result.toString();
+//        }
+//
+//        Queue<BNode<E>> queue = new LinkedList<>();
+//        queue.offer(root);
+//
+//        while (!queue.isEmpty()) {
+//            BNode<E> current = queue.poll();
+//            result.append(current.element).append(" ");
+//
+//            if (current.left != null) {
+//                queue.offer(current.left);
+//            }
+//
+//            if (current.right != null) {
+//                queue.offer(current.right);
+//            }
+//        }
+//
+//        return result.toString().trim();
+//    }
+//    public String traverseDFS() {
+//        StringBuilder result = new StringBuilder();
+//        if (root == null) {
+//            return result.toString();
+//        }
+//        traverseDFS(root, result);
+//
+//        return result.toString().trim();
+//    }
+//
+//    private void traverseDFS(BNode<E> node, StringBuilder result) {
+//        if (node != null) {
+//            result.append(node.element).append(" ");
+//
+//            traverseDFS(node.left, result);
+//
+//            traverseDFS(node.right, result);
+//        }
+//    }
     public BNode<E> delete(BNode<E> root, E e){
         if(root == null)
             return null;
