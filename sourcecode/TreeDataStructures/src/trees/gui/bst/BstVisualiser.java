@@ -15,7 +15,7 @@ public class BstVisualiser extends Application {
     @Override
     public void start(Stage primaryStage){
     	//this.primaryStage=primaryStage;
-        BST<Integer> tree = new BST<>();
+        BST tree = new BST();
         BorderPane pane = new BorderPane();
         BstPane view = new BstPane(tree);
         setPane(pane, view, tree,primaryStage);
@@ -29,7 +29,7 @@ public class BstVisualiser extends Application {
         primaryStage.show();
     }
 
-    public void setPane(BorderPane pane, BstPane view, BST<Integer> tree, Stage primaryStage){
+    public void setPane(BorderPane pane, BstPane view, BST tree, Stage primaryStage){
         pane.setCenter(view);
         TextField textField = new TextField();
         TextField textField1 = new TextField();
@@ -72,7 +72,7 @@ public class BstVisualiser extends Application {
         pane.setBottom(vBox);
     }
 
-    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST<Integer> tree, BstPane view,Stage primaryStage){
+    public void addFunctionalities(TextField textField,TextField textField1,TextField textField2, Button insert, Button delete,Button traverseBFS,Button traverseDFS,Button search,Button update,Button back,BST tree, BstPane view,Stage primaryStage){
 
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {

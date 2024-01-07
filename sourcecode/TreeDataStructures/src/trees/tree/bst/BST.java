@@ -3,107 +3,42 @@ package trees.tree.bst;
 import trees.node.BNode;
 import trees.tree.bt.BT;
 
-public class BST<E extends Comparable<E>> extends BT<E> {
+public class BST extends BT {
 
-//    public BNode<E> root;
-//    private boolean search(BNode<E> root, E e){
-//        if(root == null)
-//            return false;
-//        else if(e.compareTo(root.element) == 0)
-//            return true;
-//        else{
-//            if(e.compareTo(root.element) > 0)
-//                return search(root.right, e);
-//            else
-//                return search(root.left, e);
-//        }
-//    }
+    public BNode insert(BNode node, int e){
 
-
-
-//    public boolean search(E e) {
-//        return search(root, e);
-//    }
-
-    public BNode<E> insert(BNode<E> node, E e){
         if(node == null)
             node = createNewNode(e);
         else{
-            if(e.compareTo(node.element) > 0)
+            if(e > node.element)
                 node.right = insert(node.right, e);
-            else if(e.compareTo(node.element) < 0)
+            else if(e < node.element )
                 node.left = insert(node.left, e);
             else
                 return null;
         }
         return node;
     }
+    @Override
+    public BNode createNewNode(int e){
+        return new BNode(e);
+    }
 
-    public boolean insert(E e) {
+
+    public boolean insert(int e) {
         root = insert(root,e);
         if(root == null)
             return false;
         return true;
     }
 
-//    public BNode<E> createNewNode(E e){
-//        return new BNode<>(e);
-//    }
-//
-//    public BNode<E> getRoot(){
-//        return root;
-//    }
-//
-//    public String traverseBFS() {
-//        StringBuilder result = new StringBuilder();
-//        if (root == null) {
-//            return result.toString();
-//        }
-//
-//        Queue<BNode<E>> queue = new LinkedList<>();
-//        queue.offer(root);
-//
-//        while (!queue.isEmpty()) {
-//            BNode<E> current = queue.poll();
-//            result.append(current.element).append(" ");
-//
-//            if (current.left != null) {
-//                queue.offer(current.left);
-//            }
-//
-//            if (current.right != null) {
-//                queue.offer(current.right);
-//            }
-//        }
-//
-//        return result.toString().trim();
-//    }
-//    public String traverseDFS() {
-//        StringBuilder result = new StringBuilder();
-//        if (root == null) {
-//            return result.toString();
-//        }
-//        traverseDFS(root, result);
-//
-//        return result.toString().trim();
-//    }
-//
-//    private void traverseDFS(BNode<E> node, StringBuilder result) {
-//        if (node != null) {
-//            result.append(node.element).append(" ");
-//
-//            traverseDFS(node.left, result);
-//
-//            traverseDFS(node.right, result);
-//        }
-//    }
-    public BNode<E> delete(BNode<E> root, E e){
+    public BNode delete(BNode root, int e){
         if(root == null)
             return null;
 
-        if(e.compareTo(root.element) > 0)
+        if(e > root.element)
             root.right = delete(root.right, e);
-        else if(e.compareTo(root.element) < 0)
+        else if(e < root.element)
             root.left = delete(root.left, e);
 
         else{
@@ -121,21 +56,21 @@ public class BST<E extends Comparable<E>> extends BT<E> {
         return root;
     }
 
-    private E findMax(BNode<E> root){
-        BNode<E> temp = root;
+    private int findMax(BNode root){
+        BNode temp = root;
         while(temp.right != null)
             temp = temp.right;
         return temp.element;
     }
 
-    public boolean delete(E e) {
+    public boolean delete(int e) {
         root = delete(root, e);
         if(root == null)
             return false;
         return true;
     }
-    public boolean update(E oldValue, E newValue) {
-        BNode<E> nodeToDelete = findNode(root, oldValue);
+    public boolean update(int oldValue, int newValue) {
+        BNode nodeToDelete = findNode(root, oldValue);
 
         if (nodeToDelete != null) {
             delete(oldValue);
@@ -146,15 +81,16 @@ public class BST<E extends Comparable<E>> extends BT<E> {
         return false;
     }
 
-    private BNode<E> findNode(BNode<E> root, E e) {
+    private BNode findNode(BNode root, int e) {
         if (root == null)
             return null;
-        else if (e.compareTo(root.element) == 0)
+        else if (e == root.element)
             return root;
-        else if (e.compareTo(root.element) > 0)
+        else if (e > root.element)
             return findNode(root.right, e);
         else
             return findNode(root.left, e);
     }
+
 }
 

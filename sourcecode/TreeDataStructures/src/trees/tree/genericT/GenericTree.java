@@ -4,28 +4,28 @@ import java.util.*;
 
 import trees.node.Node;
 public class GenericTree <E extends Comparable<E>> {
-    private Node<E> root;
+    private Node root;
 	public GenericTree() {
         this.root = null;
     }
-    public Node<E> getRoot(){
+    public Node getRoot(){
         return root;
     }
-    public Node<E> findNode(E e) {
+    public Node findNode(int e) {
         return findNodeRec(root, e);
     }
 
-    private Node<E> findNodeRec(Node<E> node, E e) {
+    private Node findNodeRec(Node node, int e) {
         if (node == null) {
             return null;
         }
 
-        if (e.compareTo(node.element) == 0) {
+        if (e == node.element) {
             return node;
         }
 
-        for (Node<E> child : node.children) {
-            Node<E> foundNode = findNodeRec(child, e);
+        for (Node child : node.children) {
+            Node foundNode = findNodeRec(child, e);
             if (foundNode != null) {
                 return foundNode;
             }
@@ -35,32 +35,32 @@ public class GenericTree <E extends Comparable<E>> {
 
 
 
-    public boolean insert(E parentValue, E e) {
+    public boolean insert(int parentValue, int e) {
         if(root == null){
-            root = new Node<E>(parentValue);
-            root.children.add(new Node<E>(e));
+            root = new Node(parentValue);
+            root.children.add(new Node(e));
             return true;
         }else {
-            Node<E> parentNode = findNode(parentValue);
+            Node parentNode = findNode(parentValue);
             if (parentNode != null) {
                 if (findNode(e) == null) {
-                    parentNode.children.add(new Node<>(e));
+                    parentNode.children.add(new Node(e));
                     return true;
                 }
                 else return false;
             } else{
-                Node<E> parentNode1 = new Node<E>(parentValue);
+                Node parentNode1 = new Node(parentValue);
                 root.children.add(parentNode1);
                 if (findNode(e) == null) {
-                    parentNode1.children.add(new Node<E>(e));
+                    parentNode1.children.add(new Node(e));
                     return true;
                 }
                 else return false;
             }
         }
     }
-    public boolean update(E oldE, E newE) {
-        Node<E> nodeToUpdate = findNode(oldE);
+    public boolean update(int oldE, int newE) {
+        Node nodeToUpdate = findNode(oldE);
         if (nodeToUpdate != null) {
             if(findNode(newE) == null) nodeToUpdate.element = newE;
             else return false;
@@ -70,21 +70,21 @@ public class GenericTree <E extends Comparable<E>> {
         return false;
     }
 
-    public boolean search(E e) {
+    public boolean search(int e) {
         return findNode(e) != null;
     }
 
-    public boolean delete(E e) {
+    public boolean delete(int e) {
         if (root == null) {
             return false;
         }
 
-        if (e.compareTo(root.element) == 0) {
+        if (e == root.element) {
             if (root.children.isEmpty()) {
                 root = null;
                 return false;
             } else {
-                Node<E> newRoot = root.children.get(0);
+                Node newRoot = root.children.get(0);
                 root.children.remove(0);
                 while (!root.children.isEmpty()) {
                     newRoot.children.add(root.children.remove(0));
@@ -94,8 +94,8 @@ public class GenericTree <E extends Comparable<E>> {
             }
         } else {
 
-            Node<E> node = findNode(e);
-            Node<E> parentNode = findParentNode(root, e);
+            Node node = findNode(e);
+            Node parentNode = findParentNode(root, e);
             if (parentNode != null) {
                 parentNode.children.remove(node);
                 parentNode.children.addAll(node.children);
@@ -104,19 +104,19 @@ public class GenericTree <E extends Comparable<E>> {
         return true;
     }
 
-    private Node<E> findParentNode(Node<E> node, E value) {
+    private Node findParentNode(Node node, int value) {
         if (node == null) {
             return null;
         }
 
-        for (Node<E> child : node.children) {
+        for (Node child : node.children) {
             if (child.element == value) {
                 return node;
             }
         }
 
-        for (Node<E> child : node.children) {
-            Node<E> parent = findParentNode(child, value);
+        for (Node child : node.children) {
+            Node parent = findParentNode(child, value);
             if (parent != null) {
                 return parent;
             }
@@ -131,16 +131,16 @@ public class GenericTree <E extends Comparable<E>> {
         if (root == null)
             return result.toString();
 
-        Queue<Node<E>> queue = new LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
             int count = queue.size();
             while (count > 0) {
-                Node<E> node = queue.poll();
+                Node node = queue.poll();
                 result.append(node.element).append(" ");
 
-                for (Node<E> child : node.children) {
+                for (Node child : node.children) {
                     queue.add(child);
                 }
                 count--;
@@ -159,14 +159,14 @@ public class GenericTree <E extends Comparable<E>> {
         return result.toString();
     }
 
-    private void traverseDFS(Node<E> node, StringBuilder result) {
+    private void traverseDFS(Node node, StringBuilder result) {
         if (node == null) {
             return;
         }
 
         result.append(node.element).append(" ");
 
-        for (Node<E> child : node.children) {
+        for (Node child : node.children) {
             traverseDFS(child, result);
         }
     }

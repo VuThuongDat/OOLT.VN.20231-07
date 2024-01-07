@@ -15,13 +15,13 @@ import trees.tree.genericT.GenericTree;
 
 
 public class GtPane extends Pane {
-    private GenericTree<Integer> tree;
+    private GenericTree tree;
     private double radius = 15;
     private double vGap = 50;
 
     protected GtPane(){ }
 
-    GtPane(GenericTree<Integer> tree){
+    GtPane(GenericTree tree){
         this.tree = tree;
         setStatus("Tree is empty");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "FFC0CB"), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -45,11 +45,11 @@ public class GtPane extends Pane {
         }
     }
 
-    protected void displayTree(Node<Integer> root, double x, double y, double hGap, Color color){
+    protected void displayTree(Node root, double x, double y, double hGap, Color color){
         if(!root.children.isEmpty()){
             double startX = x - hGap * (root.children.size() - 1) / 2;
             // Lặp qua từng con và kết nối chúng với cha (root)
-            for (Node<Integer> child : root.children) {
+            for (Node child : root.children) {
                 getChildren().add(new Line(x, y, startX, y + vGap));
                 // Gọi đệ quy để hiển thị cây con
                 displayTree(child, startX, y + vGap, hGap / 2, color);
@@ -62,11 +62,11 @@ public class GtPane extends Pane {
         circle.setStroke(Color.BLACK);
         getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
     }
-    protected void displayTree(Node<Integer> root, double x, double y, double hGap, Color color, int value){
+    protected void displayTree(Node root, double x, double y, double hGap, Color color, int value){
         if(!root.children.isEmpty()){
             double startX = x - hGap * (root.children.size() - 1) / 2;
             // Lặp qua từng con và kết nối chúng với cha (root)
-            for (Node<Integer> child : root.children) {
+            for (Node child : root.children) {
                 getChildren().add(new Line(x, y, startX, y + vGap));
                 // Gọi đệ quy để hiển thị cây con
                 displayTree(child, startX, y + vGap, hGap / 2, color,value);

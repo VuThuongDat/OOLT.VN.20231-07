@@ -10,12 +10,12 @@ import javafx.scene.paint.Color;
 
 
 public class AvlPane extends BstPane {
-    private AVL<Integer> tree;
+    private AVL tree;
     private double vGap = 50;
     
     protected AvlPane(){ };
     
-    AvlPane(AVL<Integer> tree){
+    AvlPane(AVL tree){
         this.tree = tree;
         setStatus("Tree is empty");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));

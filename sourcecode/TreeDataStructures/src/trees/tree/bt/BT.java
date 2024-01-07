@@ -5,8 +5,8 @@ import trees.node.BNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public abstract class BT <E extends Comparable<E>>{
-    public BNode<E> root;
+public abstract class BT {
+    public BNode root;
 
     private int maxHeight;
 
@@ -14,7 +14,7 @@ public abstract class BT <E extends Comparable<E>>{
         return this.maxHeight;
     }
 
-    public int height(BNode<E> node) {
+    public int height(BNode node) {
         if (node == null) {
             return -1;
         } else {
@@ -25,26 +25,26 @@ public abstract class BT <E extends Comparable<E>>{
             return Math.max(leftHeight, rightHeight) + 1;
         }
     }
-    private boolean search(BNode<E> root, E e){
+    private boolean search(BNode root, int e){
         if(root == null)
             return false;
-        else if(e.compareTo(root.element) == 0)
+        else if(e == root.element)
             return true;
         else{
-            if(e.compareTo(root.element) > 0)
+            if(e > root.element)
                 return search(root.right, e);
             else
                 return search(root.left, e);
         }
     }
-    public boolean search(E e) {
+    public boolean search(int e) {
         return search(root, e);
     }
-    public BNode<E> createNewNode(E e){
-        return new BNode<>(e);
+    public BNode createNewNode(int e){
+        return new BNode(e);
     }
 
-    public BNode<E> getRoot(){
+    public BNode getRoot(){
         return root;
     }
 
@@ -54,11 +54,11 @@ public abstract class BT <E extends Comparable<E>>{
             return result.toString();
         }
 
-        Queue<BNode<E>> queue = new LinkedList<>();
+        Queue<BNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            BNode<E> current = queue.poll();
+            BNode current = queue.poll();
             result.append(current.element).append(" ");
 
             if (current.left != null) {
@@ -82,7 +82,7 @@ public abstract class BT <E extends Comparable<E>>{
         return result.toString().trim();
     }
 
-    private void traverseDFS(BNode<E> node, StringBuilder result) {
+    private void traverseDFS(BNode node, StringBuilder result) {
         if (node != null) {
             result.append(node.element).append(" ");
 

@@ -1,10 +1,12 @@
 package trees.node;
 
-public class BNode<E extends Comparable<E>> extends Node<E> {
-    public BNode<E> left;
-    public BNode<E> right;
+public class BNode {
+    public  int element;
+    public BNode left;
+    public BNode right;
     public int height = 0;
-    public BNode(E e){
-        super(e);
+    public BNode(int e){
+        super();
+        this.element = e;
     }
 }

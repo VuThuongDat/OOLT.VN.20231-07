@@ -11,10 +11,10 @@ import trees.tree.bbt.BBT;
 
 public class BbtPane extends AvlPane {
 	Stage primaryStage = new Stage();
-	private BBT<Integer> tree;
+	private BBT tree;
     private double vGap = 50;
     
-    BbtPane(BBT<Integer> tree){
+    BbtPane(BBT tree){
         this.tree = tree;
         setStatus("Tree is empty");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "FFA500"), CornerRadii.EMPTY, Insets.EMPTY)));
