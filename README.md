@@ -4,8 +4,7 @@ Nhóm 7
 Thành viên: 
 - Vũ Thường Đạt – 20215031
 - Bùi Tá Đức – 20215035                           
-- Nghiêm Xuân diện – 20215007
-- Nguyễn Công đoàn - 20215034
+
 
 Link video-demo:
 https://drive.google.com/file/d/15ltGTOD02WbVWYAnHVvRgRD53TX7cKKd/view?usp=drive_link
